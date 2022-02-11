@@ -1,21 +1,21 @@
 <template>
-	<div class="ctr">
+	<div class="Controler">
 		<transition name="fade" mode="out-in">
 			<question
-				v-if="count < questions.length"
+				v-if="counts < questions.length"
 				:questions="questions"
-				:count="count"
+				:counts="counts"
 				@send-answer="receiver"
 			/>
 			<result
 				v-else
 				:results="results"
-				:correct="correct"
+				:corrects="corrects"
 				:questions="questions"
-				:answerchoose="answerchoose"
+				:answerchooses="answerchooses"
 			/>
 		</transition>
-		<button type="button" class="reset-btn" @click.prevent="reset">
+		<button type="button" class="ResetBtn" @click.prevent="reset">
 			Reset
 		</button>
 	</div>
@@ -29,9 +29,9 @@ export default {
 	name: 'App',
 	data() {
 		return {
-			count: 0,
-			correct: 0,
-			answerchoose: [],
+			counts: 0,
+			corrects: 0,
+			answerchooses: [],
 			questions: [
 				{
 					q: '君＿どこ＿ですか',
@@ -111,16 +111,16 @@ export default {
 	},
 	methods: {
 		receiver(result, index) {
-			this.answerchoose.push(index);
+			this.answerchooses.push(index);
 			if (result) {
-				this.correct++;
+				this.corrects++;
 			}
-			this.count++;
+			this.counts++;
 		},
 		reset() {
-			this.count = 0;
-			this.correct = 0;
-			this.answerchoose = [];
+			this.counts = 0;
+			this.corrects = 0;
+			this.answerchooses = [];
 		},
 	},
 	components: {

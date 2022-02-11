@@ -1,28 +1,31 @@
 <template>
-	<div class="result">
-		<div class="title">{{ results[checkResult].title }}</div>
-		<div class="desc">{{ results[checkResult].desc }}</div>
+	<div class="Result">
+		<div class="Title">{{ results[checkResult].title }}</div>
+		<div class="Description">{{ results[checkResult].desc }}</div>
 		<button
 			type="button"
-			class="reset-btn"
+			class="ReviewBtn"
 			@click.prevent="review = !review"
 		>
 			Review
 		</button>
 		<transition-group name="fade">
 			<div
-				class="review-question"
+				class="ReviewQuestion"
 				v-for="(question, index) in questions"
 				:key="question.q"
 				v-show="review"
 			>
-				<div class="question-review">{{ question.q }}</div>
-				<div class="answers-review">
+				<div class="QuestionReview">{{ question.q }}</div>
+				<div class="AnswersReview">
 					<div
-						class="answer-review"
+						class="AnswerReview"
 						v-for="(answer, ai) in question.answers"
 						:key="answer.text"
-						:style="{ 'background-color': backgroundColor(index, ai) }"
+						:style="[
+							{ 'background-color': backgroundColor(index, ai) },
+							{ color: color(index, ai) },
+						]"
 					>
 						{{ answer.text }}
 					</div>
@@ -34,7 +37,7 @@
 
 <script>
 export default {
-	props: ['results', 'correct', 'questions', 'answerchoose'],
+	props: ['results', 'corrects', 'questions', 'answerchooses'],
 	data() {
 		return {
 			review: false,
@@ -44,17 +47,22 @@ export default {
 		backgroundColor(index, ai) {
 			return this.questions[index].answers[ai].is_correct
 				? '#8ce200'
-				: this.answerchoose[index] == ai
+				: this.answerchooses[index] == ai
 				? 'red'
+				: '';
+		},
+		color(index, ai) {
+			return this.questions[index].answers[ai].is_correct ||
+				this.answerchooses[index] == ai
+				? '#fff'
 				: '';
 		},
 	},
 	computed: {
 		checkResult() {
-			console.log(this.answerchoose);
 			let i = 0;
 			this.results.forEach((item, index) => {
-				if (item.min <= this.correct && item.max >= this.correct)
+				if (item.min <= this.corrects && item.max >= this.corrects)
 					i = index;
 			});
 			return i;

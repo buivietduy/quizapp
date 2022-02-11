@@ -8,18 +8,18 @@ body {
 	background: #e6ecf1;
 }
 
-.ctr {
+.Controler {
 	margin: 0 auto;
 	max-width: 600px;
 	width: 100%;
 	box-sizing: border-box;
 	position: relative;
 }
-.questions-ctr {
+.QuestionControler {
 	position: relative;
 	width: 100%;
 }
-.question {
+.Question {
 	width: 100%;
 	padding: 20px;
 	font-size: 32px;
@@ -29,11 +29,11 @@ body {
 	color: #fff;
 	box-sizing: border-box;
 }
-.single-question {
+.SingleQuestion {
 	position: relative;
 	width: 100%;
 }
-.answer {
+.Answer {
 	border: 1px solid #8e959f;
 	padding: 20px;
 	font-size: 18px;
@@ -41,24 +41,24 @@ body {
 	background-color: #fff;
 	transition: 0.2s linear all;
 }
-.answer span {
+.Answer span {
 	display: inline-block;
 	margin-left: 5px;
 	font-size: 0.75em;
 	font-style: italic;
 }
-.progress {
+.Progress {
 	height: 50px;
 	margin-top: 10px;
 	background-color: #ddd;
 	position: relative;
 }
-.bar {
+.Bar {
 	height: 50px;
 	background-color: #ff6372;
 	transition: all 0.3s linear;
 }
-.status {
+.Status {
 	position: absolute;
 	top: 15px;
 	left: 0;
@@ -66,16 +66,16 @@ body {
 	color: #fff;
 	width: 100%;
 }
-.answer:not(.is-answered) {
+.Answer:not(.is-answered) {
 	cursor: pointer;
 }
-.answer:not(.is-answered):hover {
+.Answer:not(.is-answered):hover {
 	background-color: #8ce200;
 	border-color: #8ce200;
 	color: #fff;
 }
 
-.title {
+.Title {
 	width: 100%;
 	padding: 20px;
 	font-size: 32px;
@@ -85,7 +85,7 @@ body {
 	color: #fff;
 	box-sizing: border-box;
 }
-.desc {
+.Description {
 	border: 1px solid #8e959f;
 	padding: 20px;
 	font-size: 18px;
@@ -106,7 +106,16 @@ body {
 	position: absolute;
 }
 
-.reset-btn {
+.ResetBtn {
+	background-color: #ff6372;
+	border: 0;
+	font-size: 22px;
+	color: #fff;
+	padding: 10px 25px;
+	margin: 10px auto;
+	display: block;
+}
+.ReviewBtn {
 	background-color: #ff6372;
 	border: 0;
 	font-size: 22px;
@@ -116,13 +125,16 @@ body {
 	display: block;
 }
 
-.result {
+.Result {
 	width: 100%;
 }
 
-.reset-btn:active,
-.reset-btn:focus,
-.reset-btn:hover {
+.ResetBtn:active,
+.ResetBtn:focus,
+.ResetBtn:hover,
+.ReviewBtn:active,
+.ReviewBtn:focus,
+.ReviewBtn:hover {
 	border: 0;
 	outline: 0;
 }
@@ -131,7 +143,7 @@ body {
 	position: relative;
 	width: 100%;
 }
-.question-review {
+.QuestionReview {
 	width: 100%;
 	padding: 20px;
 	font-size: 32px;
@@ -142,7 +154,7 @@ body {
 	box-sizing: border-box;
 }
 
-.answer-review {
+.AnswerReview {
 	border: 1px solid #8e959f;
 	padding: 20px;
 	font-size: 18px;
@@ -150,7 +162,7 @@ body {
 	background-color: #fff;
 	transition: 0.2s linear all;
 }
-.answer-review span {
+.AnswerReview span {
 	display: inline-block;
 	margin-left: 5px;
 	font-size: 0.75em;
