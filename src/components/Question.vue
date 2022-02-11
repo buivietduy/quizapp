@@ -6,7 +6,7 @@
 				:style="{ width: `${(counts / questions.length) * 100}%` }"
 			></div>
 			<div class="Status">
-				{{ counts }} out of {{ questions.length }} questions answered
+				{{ questions.length }}つの質問のうち{{ counts }}が回答されました
 			</div>
 		</div>
 		<transition-group name="fade">

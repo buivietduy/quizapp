@@ -138,7 +138,6 @@ body {
 	border: 0;
 	outline: 0;
 }
-
 .review-question {
 	position: relative;
 	width: 100%;
@@ -153,7 +152,6 @@ body {
 	color: #fff;
 	box-sizing: border-box;
 }
-
 .AnswerReview {
 	border: 1px solid #8e959f;
 	padding: 20px;
