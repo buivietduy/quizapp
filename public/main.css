@@ -126,3 +126,33 @@ body {
 	border: 0;
 	outline: 0;
 }
+
+.review-question {
+	position: relative;
+	width: 100%;
+}
+.question-review {
+	width: 100%;
+	padding: 20px;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #00ca8c;
+	color: #fff;
+	box-sizing: border-box;
+}
+
+.answer-review {
+	border: 1px solid #8e959f;
+	padding: 20px;
+	font-size: 18px;
+	width: 100%;
+	background-color: #fff;
+	transition: 0.2s linear all;
+}
+.answer-review span {
+	display: inline-block;
+	margin-left: 5px;
+	font-size: 0.75em;
+	font-style: italic;
+}

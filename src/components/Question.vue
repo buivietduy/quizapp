@@ -20,9 +20,9 @@
 				<div class="answers">
 					<div
 						class="answer"
-						v-for="answer in question.answers"
+						v-for="(answer, ansindex) in question.answers"
 						:key="answer.text"
-						@click="selectAnswer(answer.is_correct)"
+						@click="selectAnswer(answer.is_correct, ansindex)"
 					>
 						{{ answer.text }}
 					</div>
@@ -37,9 +37,8 @@ export default {
 	props: ['questions', 'count'],
 	emits: ['send-answer'],
 	methods: {
-		selectAnswer(result) {
-			this.$emit('send-answer', result);
-			console.log('Working 1');
+		selectAnswer(result, index) {
+			this.$emit('send-answer', result, index);
 		},
 	},
 };

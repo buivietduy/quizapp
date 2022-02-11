@@ -7,7 +7,13 @@
 				:count="count"
 				@send-answer="receiver"
 			/>
-			<result v-else :results="results" :correct="correct" />
+			<result
+				v-else
+				:results="results"
+				:correct="correct"
+				:questions="questions"
+				:answerchoose="answerchoose"
+			/>
 		</transition>
 		<button type="button" class="reset-btn" @click.prevent="reset">
 			Reset
@@ -25,62 +31,63 @@ export default {
 		return {
 			count: 0,
 			correct: 0,
+			answerchoose: [],
 			questions: [
 				{
-					q: 'What is 2 + 2?',
+					q: '君＿どこ＿ですか',
 					answers: [
 						{
-							text: '4',
+							text: 'は／に',
 							is_correct: true,
 						},
 						{
-							text: '3',
+							text: 'の／に',
 							is_correct: false,
 						},
 						{
-							text: 'Fish',
+							text: 'は／の',
 							is_correct: false,
 						},
 						{
-							text: '5',
+							text: 'の／は',
 							is_correct: false,
 						},
 					],
 				},
 				{
-					q: 'How many letters are in the word "Banana"?',
+					q: '後で',
 					answers: [
 						{
-							text: '5',
+							text: 'つぎ',
 							is_correct: false,
 						},
 						{
-							text: '7',
+							text: 'うしろ',
 							is_correct: false,
 						},
 						{
-							text: '6',
+							text: 'あと',
 							is_correct: true,
 						},
 						{
-							text: '12',
+							text: 'まえ',
 							is_correct: false,
 						},
 					],
 				},
 				{
-					q: 'Find the missing letter: C_ke',
+					q: '三＋七＝？',
 					answers: [
 						{
-							text: 'e',
+							text: '百',
 							is_correct: false,
 						},
 						{
-							text: 'a',
+							text: '十',
 							is_correct: true,
 						},
 						{
-							text: 'i',
+							text: '万',
 							is_correct: false,
 						},
 					],
@@ -90,21 +97,21 @@ export default {
 				{
 					min: 0,
 					max: 2,
-					title: 'Try again!',
-					desc: 'Do a little more studying and you may succeed!',
+					title: 'リトライ!',
+					desc: '頑張ってね!',
 				},
 				{
 					min: 3,
 					max: 3,
-					title: "Wow, you're a genius!",
-					desc: 'Studying has definitely paid off for you!',
+					title: 'すごいいだね！',
+					desc: '学習は良いです!',
 				},
 			],
 		};
 	},
 	methods: {
-		receiver(result) {
-			console.log('Working 2');
+		receiver(result, index) {
+			this.answerchoose.push(index);
 			if (result) {
 				this.correct++;
 			}
@@ -113,6 +120,7 @@ export default {
 		reset() {
 			this.count = 0;
 			this.correct = 0;
+			this.answerchoose = [];
 		},
 	},
 	components: {
