@@ -45,6 +45,7 @@ export default {
 	},
 	methods: {
 		backgroundColor(index, ai) {
+			//Change the background color,green for the correct answer, red for the answer user choose and not correct
 			return this.questions[index].answers[ai].is_correct
 				? '#8ce200'
 				: this.answerchooses[index] == ai
@@ -52,6 +53,7 @@ export default {
 				: '';
 		},
 		color(index, ai) {
+			//Change the text color,white for the correct answer and the answer user choose and not correct
 			return this.questions[index].answers[ai].is_correct ||
 				this.answerchooses[index] == ai
 				? '#fff'
@@ -60,6 +62,7 @@ export default {
 	},
 	computed: {
 		checkResult() {
+			//check the result to take the index of the title and the description
 			let i = 0;
 			this.results.forEach((item, index) => {
 				if (item.min <= this.corrects && item.max >= this.corrects)

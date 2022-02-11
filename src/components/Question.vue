@@ -38,6 +38,7 @@ export default {
 	emits: ['send-answer'],
 	methods: {
 		selectAnswer(result, index) {
+			//Emmiting Event to the Root component and send correct or not and the index user choose
 			this.$emit('send-answer', result, index);
 		},
 	},

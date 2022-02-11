@@ -111,6 +111,7 @@ export default {
 	},
 	methods: {
 		receiver(result, index) {
+			// Check if the user choose the correct answer or not, and save the user input
 			this.answerchooses.push(index);
 			if (result) {
 				this.corrects++;
@@ -118,6 +119,7 @@ export default {
 			this.counts++;
 		},
 		reset() {
+			// Reset the Quiz
 			this.counts = 0;
 			this.corrects = 0;
 			this.answerchooses = [];
